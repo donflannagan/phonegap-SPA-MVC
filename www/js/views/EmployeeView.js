@@ -5,6 +5,7 @@ var EmployeeView = function(employee) {
     };
     
     this.addLocation = function(event) {
+        app.showAlert("attempting to get location", "Employee search");
         event.preventDefault();
         console.log('addLocation');
         navigator.geolocation.getCurrentPosition(
