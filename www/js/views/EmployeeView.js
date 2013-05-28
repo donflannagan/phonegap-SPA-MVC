@@ -6,6 +6,7 @@ var EmployeeView = function(employee) {
     
     this.addLocation = function(event) {
         event.preventDefault();
+        app.showAlert("Attempting to get location...", "Employee Search");
         console.log('addLocation');
         navigator.geolocation.getCurrentPosition(
             function(position) {
@@ -13,7 +14,7 @@ var EmployeeView = function(employee) {
                 $('.location', this.el).html(position.coords.latitude + ',' + position.coords.longitude);
             },
             function() {
-                alert('Error getting location');
+                app.showAlert("Unable to get location!", "Employee Search");
             });
         return false;
     };
